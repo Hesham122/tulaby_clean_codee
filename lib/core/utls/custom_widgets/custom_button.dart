@@ -4,7 +4,11 @@ import 'package:tulaby_clean_code/core/utls/style.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
-      {super.key, this.backgcolor, this.textcolor, required this.text, required this.onpressed});
+      {super.key,
+      this.backgcolor,
+      this.textcolor,
+      required this.text,
+      required this.onpressed});
   final Color? backgcolor;
   final Color? textcolor;
   final String text;
@@ -15,11 +19,8 @@ class CustomButton extends StatelessWidget {
       height: 47,
       width: 304,
       child: ElevatedButton(
-        
         onPressed: onpressed,
         style: ButtonStyle(
-
-     
           side: WidgetStatePropertyAll(
               BorderSide(width: 2, color: ColorsApp.primaryColor)),
           shape: WidgetStatePropertyAll(

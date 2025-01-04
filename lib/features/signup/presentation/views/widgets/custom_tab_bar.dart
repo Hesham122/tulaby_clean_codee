@@ -3,6 +3,8 @@ import 'package:tulaby_clean_code/core/utls/colors.dart';
 import 'package:tulaby_clean_code/core/utls/style.dart';
 
 class CustomTabBar extends StatefulWidget {
+  const CustomTabBar({super.key});
+
   @override
   _CustomTabBarState createState() => _CustomTabBarState();
 }

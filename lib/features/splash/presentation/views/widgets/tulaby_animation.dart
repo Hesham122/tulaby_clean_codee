@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:tulaby_clean_code/core/utls/app_assets.dart';
 import 'package:tulaby_clean_code/core/utls/style.dart';
 
 class TulabyAnimation extends StatefulWidget {
@@ -36,7 +34,6 @@ class _AnimationLogoState extends State<TulabyAnimation>
           _isAnimationInitialized = true;
         });
       }
-   
     });
   }
 
@@ -52,12 +49,12 @@ class _AnimationLogoState extends State<TulabyAnimation>
       return Container(); // or some placeholder widget
     }
     return ScaleTransition(
-     scale: _animation,
-     child:Center(
-      child: Text(
-    "TULABY",
-    style: AppStyles.styleRegular50,
-          )),
+      scale: _animation,
+      child: Center(
+          child: Text(
+        "TULABY",
+        style: AppStyles.styleRegular50,
+      )),
     );
   }
 }

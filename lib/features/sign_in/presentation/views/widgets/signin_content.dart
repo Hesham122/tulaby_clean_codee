@@ -35,7 +35,6 @@ class SigninContent extends StatelessWidget {
               GoRouter.of(context).pushReplacement(RouterPage.signUpView);
             },
           ),
-         
         ],
       ),
     );

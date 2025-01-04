@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tulaby_clean_code/core/utls/app_assets.dart';
 import 'package:tulaby_clean_code/core/utls/colors.dart';
@@ -6,8 +7,8 @@ import 'package:tulaby_clean_code/core/utls/custom_widgets/custom_button.dart';
 import 'package:tulaby_clean_code/core/utls/custom_widgets/custom_textfield.dart';
 import 'package:tulaby_clean_code/core/utls/router_page.dart';
 import 'package:tulaby_clean_code/features/get_started/presentation/views/wedgits/row_divider.dart';
+import 'package:tulaby_clean_code/features/sign_in/presentation/manager/cubit/signin_cubit.dart';
 import 'package:tulaby_clean_code/features/sign_in/presentation/views/widgets/animation_signin_button.dart';
-import 'package:tulaby_clean_code/features/sign_in/presentation/views/widgets/animation_signin_textfield.dart';
 import 'package:tulaby_clean_code/features/signup/presentation/views/widgets/custom_tab_bar.dart';
 
 class SignupContent extends StatelessWidget {
@@ -27,6 +28,7 @@ class SignupContent extends StatelessWidget {
             height: 15,
           ),
           CustomTextfield(
+            textEditingController: context.read<SigninCubit>().signInPassword,
             atIcon: Icon(
               size: 27,
               Icons.alternate_email,
@@ -38,6 +40,7 @@ class SignupContent extends StatelessWidget {
             height: 10,
           ),
           CustomTextfield(
+            textEditingController: context.read<SigninCubit>().signInPassword,
             imgpic: Assets.imagesVector,
             title: "Email",
           ),
@@ -45,6 +48,7 @@ class SignupContent extends StatelessWidget {
             height: 10,
           ),
           CustomTextfield(
+            textEditingController: context.read<SigninCubit>().signInPassword,
             imgpic: Assets.imagesVector1,
             title: "Password",
           ),
@@ -52,6 +56,7 @@ class SignupContent extends StatelessWidget {
             height: 10,
           ),
           CustomTextfield(
+            textEditingController: context.read<SigninCubit>().signInPassword,
             imgpic: Assets.imagesVector1,
             title: "Repeat Password",
           ),

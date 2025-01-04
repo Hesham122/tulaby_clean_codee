@@ -18,7 +18,7 @@ class SignupView extends StatelessWidget {
               SignupViewBody(),
               Expanded(
                 child: SizedBox(
-                        height: 20,     
+                  height: 20,
                 ),
               ),
               TulabyCopyRight()

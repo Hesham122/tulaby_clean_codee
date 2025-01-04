@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tulaby_clean_code/core/utls/app_assets.dart';
 import 'package:tulaby_clean_code/core/utls/style.dart';
 import 'package:tulaby_clean_code/features/splash/presentation/views/widgets/animation_logo.dart';
 import 'package:tulaby_clean_code/features/splash/presentation/views/widgets/tulaby_animation.dart';
@@ -17,10 +15,7 @@ class SplashViewBody extends StatelessWidget {
           height: 60,
         ),
         Column(
-          children: [
-            Center(child: AnimationLogo()),
-            TulabyAnimation()
-          ],
+          children: [Center(child: AnimationLogo()), TulabyAnimation()],
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 12),

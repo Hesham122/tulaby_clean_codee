@@ -14,7 +14,7 @@ class SigninViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       // clipBehavior: Clip.none,
-      children: [ 
+      children: [
         SizedBox(
           height: 700,
         ),
@@ -59,7 +59,6 @@ class SigninViewBody extends StatelessWidget {
             content: SigninContent(),
           ),
         ),
-       
       ],
     );
   }

@@ -8,24 +8,17 @@ class SigninView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: CustomScrollView(
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    SigninViewBody(),
-                    TulabyCopyRight()
-                  ],
-                ),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [SigninViewBody(), TulabyCopyRight()],
+            ),
           ),
-       
         ],
       ),
-   
     );
   }
 }

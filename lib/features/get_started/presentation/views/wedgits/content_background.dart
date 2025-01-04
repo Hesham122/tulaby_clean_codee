@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tulaby_clean_code/core/utls/colors.dart';
 import 'package:tulaby_clean_code/core/utls/custom_widgets/custom_button.dart';
 import 'package:tulaby_clean_code/core/utls/router_page.dart';
 import 'package:tulaby_clean_code/core/utls/style.dart';
 import 'package:tulaby_clean_code/features/get_started/presentation/views/wedgits/row_divider.dart';
+import 'package:tulaby_clean_code/features/sign_in/presentation/manager/cubit/signin_cubit.dart';
 
 class ContentBackground extends StatelessWidget {
   const ContentBackground({super.key});
@@ -38,7 +40,7 @@ class ContentBackground extends StatelessWidget {
             );
           },
         ),
-       
+
         SizedBox(
           height: 10,
         ),
@@ -47,7 +49,7 @@ class ContentBackground extends StatelessWidget {
           textcolor: ColorsApp.primaryColor,
           backgcolor: Colors.white,
           onpressed: () {
-              GoRouter.of(context).push(
+            GoRouter.of(context).push(
               RouterPage.signUpView,
             );
           },
@@ -57,7 +59,9 @@ class ContentBackground extends StatelessWidget {
           text: "SKIP FOR NOW",
           textcolor: ColorsApp.primaryColor,
           backgcolor: Colors.white,
-          onpressed: () {},
+          onpressed: () {
+            context.read<SigninCubit>().signin();
+          },
         ),
         SizedBox(
           height: 38,
@@ -73,7 +77,8 @@ class AnimatedCustomButton extends StatefulWidget {
   final Color textcolor;
   final VoidCallback onpressed;
 
-  AnimatedCustomButton({
+  const AnimatedCustomButton({
+    super.key,
     required this.text,
     required this.backgcolor,
     required this.textcolor,
@@ -86,7 +91,6 @@ class AnimatedCustomButton extends StatefulWidget {
 
 class _AnimatedCustomButtonState extends State<AnimatedCustomButton>
     with SingleTickerProviderStateMixin {
-  double _opacity = 1.0;
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
   late Animation<Offset> slidelogo;
@@ -103,14 +107,10 @@ class _AnimatedCustomButtonState extends State<AnimatedCustomButton>
   }
 
   void _handleTap() {
-    setState(() {
-      _opacity = 0.5;
-    });
+    setState(() {});
 
     Future.delayed(Duration(milliseconds: 200), () {
-      setState(() {
-        _opacity = 1.0;
-      });
+      setState(() {});
       widget.onpressed();
     });
     animationController.forward(from: 0.0); // Restart the animation

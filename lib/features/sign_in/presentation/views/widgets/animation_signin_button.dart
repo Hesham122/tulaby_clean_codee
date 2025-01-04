@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:tulaby_clean_code/core/utls/colors.dart';
 import 'package:tulaby_clean_code/core/utls/custom_widgets/custom_button.dart';
+import 'package:tulaby_clean_code/core/utls/custom_widgets/custom_snack_bar.dart';
+
+import 'package:tulaby_clean_code/features/sign_in/presentation/manager/cubit/signin_cubit.dart';
+
+import '../../../../../core/utls/router_page.dart';
 
 class AnimationSigninButton extends StatefulWidget {
   const AnimationSigninButton({
@@ -32,18 +40,38 @@ class _AnimationSigninButtonState extends State<AnimationSigninButton>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-        animation: animationController,
-        builder: (context, _) {
-          return SlideTransition(
-            position: slidelogo,
-            child: CustomButton(
-              backgcolor: ColorsApp.primaryColor,
-              text: widget.text ?? "SIGN IN",
-              onpressed: () {},
-            ),
-          );
-        });
+    return BlocConsumer<SigninCubit, SigninState>(
+      listener: (context, state) {
+        if (state is SigninSuccessful) {
+          shareSnackBar(context, "Success");
+          GoRouter.of(context).pushReplacement(RouterPage.attendanceView);
+        } else if (state is SigninFailure) {
+          shareSnackBar(context, state.errormsg.toString());
+        }
+      },
+      builder: (context, state) {
+        return state is SigninLoading
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : AnimatedBuilder(
+                animation: animationController,
+                builder: (context, _) {
+                  return SlideTransition(
+                    position: slidelogo,
+                    child: CustomButton(
+                      backgcolor: ColorsApp.primaryColor,
+                      text: widget.text ?? "SIGN IN",
+                      onpressed: () {
+                        context.read<SigninCubit>().signin();
+                        context.read<SigninCubit>().signInEmail.clear();
+                        context.read<SigninCubit>().signInPassword.clear();
+                      },
+                    ),
+                  );
+                });
+      },
+    );
   }
 
   void initslideAnimation() {

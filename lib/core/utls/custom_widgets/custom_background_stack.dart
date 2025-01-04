@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class BackgroundStack extends StatelessWidget {
   const BackgroundStack({
-    super.key, this.customcolor,
+    super.key,
+    this.customcolor,
   });
   final Color? customcolor;
   @override
@@ -13,7 +14,7 @@ class BackgroundStack extends StatelessWidget {
       decoration: BoxDecoration(
           color: Color(0xff4642FF),
           gradient: LinearGradient(
-            colors: [Color(0xff4642FF),customcolor?? Color(0xff0B0954)],
+            colors: [Color(0xff4642FF), customcolor ?? Color(0xff0B0954)],
             begin: Alignment.topLeft,
             end: Alignment.bottomLeft,
           ),

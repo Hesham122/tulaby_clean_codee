@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tulaby_clean_code/features/get_started/presentation/views/wedgits/content_background.dart';
 
 class CustomSignInAndUpBackground extends StatelessWidget {
   const CustomSignInAndUpBackground({
@@ -12,7 +11,7 @@ class CustomSignInAndUpBackground extends StatelessWidget {
     var width = MediaQuery.sizeOf(context).width;
     return Container(
       // height: 484,
-      width: width*.95,
+      width: width * .95,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
           color: Colors.black26, // Shadow color with opacity

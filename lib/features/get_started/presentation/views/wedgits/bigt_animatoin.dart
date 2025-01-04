@@ -6,12 +6,12 @@ import 'package:tulaby_clean_code/core/utls/style.dart';
 class BigtAnimatoin extends StatefulWidget {
   const BigtAnimatoin({super.key});
 
+  @override
   _BigtAnimatoinState createState() => _BigtAnimatoinState();
 }
 
 class _BigtAnimatoinState extends State<BigtAnimatoin>
     with SingleTickerProviderStateMixin {
-   
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
   late Animation<Offset> slidelogo;

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tulaby_clean_code/core/utls/app_assets.dart';
 import 'package:tulaby_clean_code/core/utls/custom_widgets/custom_textfield.dart';
 import 'package:tulaby_clean_code/core/utls/style.dart';
+import 'package:tulaby_clean_code/features/sign_in/presentation/manager/cubit/signin_cubit.dart';
 
 class AnimationSignInTextField extends StatefulWidget {
   const AnimationSignInTextField({
@@ -46,6 +48,8 @@ class _AnimationSignInTextFieldState extends State<AnimationSignInTextField>
                 CustomTextfield(
                   imgpic: Assets.imagesVector,
                   title: "Email",
+                  textEditingController:
+                      context.read<SigninCubit>().signInEmail,
                 ),
                 SizedBox(
                   height: 10,
@@ -53,6 +57,8 @@ class _AnimationSignInTextFieldState extends State<AnimationSignInTextField>
                 CustomTextfield(
                   imgpic: Assets.imagesVector1,
                   title: "Password",
+                  textEditingController:
+                      context.read<SigninCubit>().signInPassword,
                 ),
                 SizedBox(
                   height: 5,

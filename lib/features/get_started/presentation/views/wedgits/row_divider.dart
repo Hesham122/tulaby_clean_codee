@@ -20,7 +20,10 @@ class RowDivider extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Text("OR",style: AppStyles.styleBold16,),
+          child: Text(
+            "OR",
+            style: AppStyles.styleBold16,
+          ),
         ),
         Expanded(
           child: Divider(
